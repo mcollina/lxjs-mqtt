@@ -123,6 +123,25 @@ html
           li This web app is connected via WebSocket to the MQTT broker..
           li ..and triggers the sliding API.
 
+      section(data-camera="fullscreen")
+
+      section(data-camera)
+        h2 Votes!
+        pre
+          code(data-bespoke-autorun).language-javascript.
+            var client = mqtt.createClient()
+              , refs   = { red: -2, green: 2, yellow: 1 }
+              , votes  = 0;
+            client.subscribe("votes");
+            client.on("message", function(topic, payload) {
+              votes += refs[payload]
+              client.publish("yun/votes", "" + votes)
+              if (votes === 10)
+                client.end()
+            });
+
+      section(data-camera="fullscreen")
+
       section.full-imgs
         img(src='images/me.png')
         h3
