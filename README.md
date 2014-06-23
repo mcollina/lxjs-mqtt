@@ -1,4 +1,4 @@
-# Can I build a web-controlled robot(-ish) thing in 20 minutes?
+# Web-Enabling things with MQTT
 > A [Bespoke.js](http://markdalgleish.com/projects/bespoke.js) presentation, built with [generator-bespoke](https://github.com/markdalgleish/generator-bespoke)
 
 ## View slides locally

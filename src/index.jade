@@ -3,7 +3,7 @@ html
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
-    title Can I build a web-controlled robot(-ish) thing in 20 minutes?
+    title Web-Enabling things with MQTT
 
     // build:css styles/styles.css
     //- Check out 'src/bower_components/prism/themes/' for available themes
@@ -17,7 +17,8 @@ html
     article
 
       section
-        h1 Web-Enabling things with MQTT?
+        h1 Web-Enabling things with MQTT
+        h3 <a href="http://twitter.com/matteocollina">@matteocollina</a>
 
       section(data-camera)
         h1 Camera Test
@@ -141,6 +142,13 @@ html
             });
 
       section(data-camera="fullscreen")
+
+      section(data-camera)
+        h2 Votes
+        div(style="clear: both")
+          i#votes-red
+          i#votes-yellow
+          i#votes-green
 
       section.full-imgs
         img(src='images/me.png')

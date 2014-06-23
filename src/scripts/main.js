@@ -18,13 +18,26 @@ bespoke.plugins.mqtt = function(deck) {
   var updateHumidity = buildUpdater('#humidity')
   var updateIrObject = buildUpdater('#ir-object')
   var updateIrAmbient = buildUpdater('#ir-ambient')
+  var votesUpdater = {
+        red: buildUpdater('#votes-red')
+      , yellow: buildUpdater('#votes-yellow')
+      , green: buildUpdater('#votes-green')
+    }
+
+  var votes = {
+        red: 0
+      , yellow: 0
+      , green: 0
+    }
 
   client.subscribe('deck/next')
   client.subscribe('deck/prev')
+  client.subscribe('votes')
   client.subscribe('sensortag/ir/+')
 
   client.on('message', function(topic, payload) {
     var command = topic.replace('deck/', '')
+
     if (deck[command])
       return deck[command]()
 
@@ -35,6 +48,18 @@ bespoke.plugins.mqtt = function(deck) {
     if (topic == 'sensortag/ir/ambient') {
       updateIrAmbient(payload)
     }
+
+    if (topic === 'votes') {
+      votes[payload] += 1
+      votesUpdater[payload](votes[payload])
+    }
+  })
+
+  deck.on("activate", function() {
+    ["red", "green", "yellow"].forEach(function(color) {
+      votes[color] = 0
+      votesUpdater[color](votes[color])
+    })
   })
 
   ;(function () {
