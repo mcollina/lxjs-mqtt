@@ -1,0 +1,34 @@
+{
+  "name": "can-i-build-a-web-controlled-robot-ish-thing-in-20-minutes-bespoke",
+  "version": "0.0.0",
+  "dependencies": {
+    "debug": "^1.0.2",
+    "mac-key-press": "^0.1.0",
+    "mows": "0.0.6",
+    "mqtt": "^0.3.10",
+    "sensortag": "^0.1.8"
+  },
+  "devDependencies": {
+    "browserify": "^4.1.11",
+    "connect-livereload": "~0.2.0",
+    "grunt": "~0.4.1",
+    "grunt-concurrent": "~0.3.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt-contrib-jade": "~0.9.0",
+    "grunt-contrib-stylus": "~0.5.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-gh-pages": "~0.6.0",
+    "grunt-open": "~0.2.1",
+    "grunt-usemin": "~2.0.2",
+    "matchdep": "~0.3.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}

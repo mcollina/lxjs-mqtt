@@ -1,0 +1,63 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Can I build a web-controlled robot(-ish) thing in 20 minutes?
+
+    // build:css styles/styles.css
+    //- Check out 'src/bower_components/prism/themes/' for available themes
+    link(rel='stylesheet', type='text/css', href='bower_components/prism/themes/prism-tomorrow.css')
+    link(rel="stylesheet", type='text/css', href="bower_components/font-awesome/css/font-awesome.min.css")
+    link(rel='stylesheet', type='text/css', href='styles/main.css')
+    // endbuild
+
+  body
+
+    article
+
+      section
+        h1 Can I build a web-controlled robot(-ish) thing in 20 minutes?
+
+      section(data-camera)
+        h1 Camera Test
+
+      section
+        h1 Let's go fullscreen!
+
+      section(data-camera="fullscreen")
+        h1 You should not see this!
+
+      section
+        h2 Infrared Temperature Sensor
+        p
+          | Object: &nbsp;
+          span#ir-object.sensor-data
+          | &nbsp; °C
+        p
+          | Ambient: &nbsp;
+          span#ir-ambient.sensor-data
+          | &nbsp; °C
+
+      section
+        h2 A humidity sensor!
+        p
+          i.fa.fa-umbrella.fa-5x
+          | &nbsp;
+          span#humidity.sensor-data
+          | &nbsp; %RH
+
+    // build:js scripts/scripts.js
+    script(src='bower_components/bespoke.js/dist/bespoke.min.js')
+    script(src='bower_components/bespoke-keys/dist/bespoke-keys.min.js')
+    script(src='bower_components/bespoke-touch/dist/bespoke-touch.min.js')
+    script(src='bower_components/bespoke-bullets/dist/bespoke-bullets.min.js')
+    script(src='bower_components/bespoke-scale/dist/bespoke-scale.min.js')
+    script(src='bower_components/bespoke-hash/dist/bespoke-hash.min.js')
+    script(src='bower_components/bespoke-progress/dist/bespoke-progress.min.js')
+    script(src='bower_components/bespoke-state/dist/bespoke-state.min.js')
+    script(src='bower_components/bespoke-camera/dist/bespoke-camera.js')
+    script(src='bower_components/prism/prism.js')
+    script(src='http://localhost:3000/mqtt.js')
+    script(src='scripts/main.js')
+    // endbuild
