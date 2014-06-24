@@ -30,6 +30,8 @@ bespoke.plugins.mqtt = function(deck) {
       , green: 0
     }
 
+  var publishVotes = false
+
   client.subscribe('deck/next')
   client.subscribe('deck/prev')
   client.subscribe('votes')
@@ -53,13 +55,23 @@ bespoke.plugins.mqtt = function(deck) {
       votes[payload] += 1
       votesUpdater[payload](votes[payload])
     }
+
+    if (publishVotes) {
+      client.publish("yun/votes", votes.red * -2 + votes.yellow * 1 + votes.green * 2 + "")
+    }
   })
 
-  deck.on("activate", function() {
+  deck.on("activate", function(event) {
     ["red", "green", "yellow"].forEach(function(color) {
       votes[color] = 0
       votesUpdater[color](votes[color])
     })
+
+    if (event.slide.id === 'votes') {
+      publishVotes = true
+    } else {
+      publishVotes = false
+    }
   })
 
   ;(function () {
